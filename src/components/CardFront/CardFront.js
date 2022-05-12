@@ -1,20 +1,20 @@
 import React from "react";
 
 const CardFront = (props) => {
-	const { userNote } = props;
+	const { user, id, createdAt, note } = props.userNote;
 	return (
 		<section>
 			<h3>
-				<span>Name</span>: {userNote.user}
+				<span>Name</span>: {user}
 			</h3>
 			<h3>
-				<span>Id</span>: {userNote.id}
+				<span>Id</span>: {id}
 			</h3>
 			<h3>
-				<span>Date</span>: {userNote.createdAt}
+				<span>Date</span>: {createdAt}
 			</h3>
 			<h3>
-				<span>Date</span>: {userNote.note}
+				<span>Note</span>: {note}
 			</h3>
 		</section>
 	);
