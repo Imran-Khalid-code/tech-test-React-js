@@ -1,14 +1,14 @@
 import React from "react";
 
 const NavBar = (props) => {
-	const { lastSixMonths, handleModal } = props;
+	const { handleModal } = props;
 	return (
 		<nav>
 			<div>
-				<label>
+				{/* <label>
 					<h5>Recent Notes</h5>
 					<input type="checkbox" onClick={lastSixMonths} />
-				</label>
+				</label> */}
 				<div>
 					<label>
 						<h5>Create Modal</h5>

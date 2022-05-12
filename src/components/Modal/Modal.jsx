@@ -1,46 +1,44 @@
 import React from "react";
+import userNotes from "../../data/notes";
+import { useState } from "react";
 
 const Modal = (props) => {
-	const { note } = props;
-	const modalHeader = document.createElement("h4");
-	modalHeader.innerText = note.name;
-
-	const modalID = document.createElement("h3");
-	modalID.innerText = note.id;
-
-	const modalCreated = document.createElement("createdAt");
-	modalCreated.classList.add("createdAt");
-
-	modalCreated = note.createdAt;
-
-	//Modal Description
-	const modalDescription = document.createElement("div");
-	modalDescription.classList.add("modal-description");
-	modalDescription.innerText = note.description;
+	const { setModal } = props;
 
 	const shortenInstructions = (instructions) =>
-		instructions.length < 600
+		instructions.length < 5
 			? instructions
-			: instructions.substring(0, 500) + "...";
+			: instructions.substring(0, 4) + "...";
+
+	const [name, setName] = useState("");
+	const [note, setNote] = useState("");
+
+	const createNewNote = (e) => {
+		e.preventDefault();
+		const formData = {
+			id: userNotes.length++,
+			name: name,
+			note: note,
+			createdAt: new Date(),
+		};
+		userNotes.push(formData);
+		console.log(formData);
+		console.log(userNotes);
+	};
 
 	return (
-		div >
-		(
-			<section>
-				<h3>
-					<span>Name</span>: {note.name}
-				</h3>
-				<h3>
-					<span>Id</span>: {note.id}
-				</h3>
-				<h3>
-					<span>Date</span>: {note.createdAt}
-				</h3>
-				<h3>
-					<span>Description</span>: {shortenInstructions(note.description)}
-				</h3>
-			</section>
-		)
+		<form className="modal" onSubmit={createNewNote}>
+			<h1>This is a modal</h1>
+			<label htmlFor="">Name</label>
+			<input type="text" onChange={(e) => setName(e.target.value)} />
+			<label htmlFor="">Name</label>
+			<textarea
+				type="text"
+				onChange={(e) => setNote(e.target.value)}
+			></textarea>
+			<button onClick={(e) => setModal(false)}>Close Modal</button>
+			<button type="submit">Submit</button>
+		</form>
 	);
 };
 
