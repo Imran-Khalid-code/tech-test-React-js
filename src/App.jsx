@@ -71,7 +71,7 @@ const App = () => {
 			</section>
 
 			{modal && (
-				<div className="overlay">
+				<div className={styles.overlay}>
 					<Modal setModal={setModal} userNotes={userNotes} />
 				</div>
 			)}

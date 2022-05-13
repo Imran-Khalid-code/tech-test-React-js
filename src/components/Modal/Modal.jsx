@@ -8,6 +8,7 @@ const Modal = (props) => {
 
 	const [name, setName] = useState("");
 	const [note, setNote] = useState("");
+	const [noteError, setNoteError] = useState(false);
 
 	// const [content, setContent] = useState(0);
 
@@ -18,15 +19,21 @@ const Modal = (props) => {
 
 	const createNewNote = (e) => {
 		e.preventDefault();
-		const formData = {
-			id: userNotes.length++,
-			name: name,
-			note: note,
-			createdAt: new Date(),
-		};
-		userNotes.push(formData);
-		console.log(formData);
-		console.log(userNotes);
+		if (!name || !note) {
+			alert("Please complete all fields!");
+		} else if ((!name && !note) || note.length > 500) {
+			console.log("if statement ran");
+			setNoteError(true);
+		} else {
+			const formData = {
+				id: userNotes.length++,
+				name: name,
+				note: note,
+				createdAt: new Date(),
+			};
+			userNotes.push(formData);
+			console.log("form submitted");
+		}
 	};
 
 	return (
@@ -45,8 +52,10 @@ const Modal = (props) => {
 				placeholder="notes..."
 				onChange={(e) => setNote(e.target.value)}
 				// maxLength={500}
-				// value={shortenInstructions}
 			/>
+			{noteError && (
+				<small>You have reached the maximum character count.</small>
+			)}
 			<button onClick={(e) => setModal(false)}>Close Modal</button>
 			<button type="submit">Submit</button>
 		</form>
