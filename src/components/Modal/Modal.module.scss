@@ -1,0 +1,14 @@
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+	color: red;
+	font-weight: bold;
+	padding: 5px;
+}

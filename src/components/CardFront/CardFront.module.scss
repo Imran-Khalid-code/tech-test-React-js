@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.noteCard {
+	height: 90%;
+	width: 100%;
+	padding: $base-spacing * 4;
+	border-top: none;
+	border-radius: 0 2px 2px 0;
+	display: flex;
+	flex-direction: column;
+	padding-top: $base-spacing * 2;
+	border: 10px solid black;
+	background-color: yellow;
+
+	// h3 {
+	// 	color: $primary-color;
+	// 	font-size: 1.3rem;
+	// 	margin-bottom: $base-spacing;
+	// 	white-space: nowrap;
+	// 	overflow: hidden;
+	// 	text-overflow: ellipsis;
+	// }
+
+	// span {
+	// 	margin-left: $base-spacing;
+	// }
+}

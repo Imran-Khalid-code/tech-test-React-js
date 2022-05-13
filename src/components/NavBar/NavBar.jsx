@@ -1,20 +1,22 @@
 import React from "react";
+import styles from "./NavBar.module.scss";
 
 const NavBar = (props) => {
-	const { handleModal } = props;
+	const { handleModal, handlerecent } = props;
 	return (
-		<nav>
+		<nav className={styles.navFlex}>
 			<div>
-				{/* <label>
-					<h5>Recent Notes</h5>
-					<input type="checkbox" onClick={lastSixMonths} />
-				</label> */}
-				<div>
-					<label>
-						<h5>Create Modal</h5>
-						<input type="checkbox" onClick={handleModal} />
-					</label>
-				</div>
+				<label>
+					<h5>Notes</h5>
+					<input type="checkbox" onClick={handlerecent} />
+				</label>
+			</div>
+
+			<div>
+				<label>
+					<h5>Create Modal</h5>
+					<input type="checkbox" onClick={handleModal} />
+				</label>
 			</div>
 		</nav>
 	);
