@@ -20,7 +20,6 @@ const Modal = (props) => {
 	const createNewNote = (e) => {
 		e.preventDefault();
 		if (!name || !note) {
-			alert("Please complete all fields!");
 		} else if ((!name && !note) || note.length > 500) {
 			console.log("if statement ran");
 			setNoteError(true);
